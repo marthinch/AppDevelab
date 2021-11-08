@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Develab.Views.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:Develab.ViewModels"
+    x:DataType="viewmodels:LoginViewModel"
+    Shell.NavBarIsVisible="False">
+    <StackLayout
+        Margin="10"
+        Padding="10,0,10,0"
+        VerticalOptions="Center">
+        <Label Text="Please login" />
+
+        <Label Text="Name:" />
+        <Entry Placeholder="Name" Text="{Binding Login.Name}" />
+
+        <Label Text="Date Of Birth:" />
+        <DatePicker Date="{Binding Login.DateOfBirth}" />
+
+        <Button Command="{Binding LoginCommand}" Text="Login" />
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Develab.Views.DashboardPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:Develab.Models"
+    xmlns:viewmodels="clr-namespace:Develab.ViewModels"
+    Title="Cases"
+    x:DataType="viewmodels:DashboardViewModel">
+    <RefreshView IsRefreshing="{Binding IsLoading}">
+        <CollectionView
+            Grid.Row="1"
+            Margin="10"
+            HorizontalOptions="FillAndExpand"
+            ItemsSource="{Binding Cases}"
+            SelectedItem="{Binding CaseDetail}"
+            SelectionMode="Single"
+            VerticalOptions="StartAndExpand">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Case">
+                    <StackLayout Margin="10">
+                        <Label FontAttributes="Bold" Text="{Binding Country, StringFormat='Country : {0}'}" />
+                        <Label Text="{Binding Date, StringFormat='Date : {0:dd MMMM yyyy}'}" />
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Text="{Binding Confirmed, StringFormat='Confirmed : {0}'}" />
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Text="{Binding Deaths, StringFormat='Deaths : {0}'}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Text="{Binding Active, StringFormat='Active : {0}'}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Text="{Binding Recovered, StringFormat='Recovered : {0}'}" />
+                        </Grid>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyViewTemplate>
+                <DataTemplate>
+                    <Label Text="No data" />
+                </DataTemplate>
+            </CollectionView.EmptyViewTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>

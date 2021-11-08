@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Develab.Views.DashboardDetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:Develab.ViewModels"
+    Title="Details"
+    x:DataType="viewmodels:DashboardDetailViewModel"
+    Shell.TabBarIsVisible="False">
+    <StackLayout Margin="10">
+        <Label Text="{Binding CaseDetail.Date, StringFormat='Date : {0: dd MMMM yyyy}'}" />
+        <Label Text="{Binding CaseDetail.Country, StringFormat='Country : {0}'}" />
+        <Label Text="{Binding CaseDetail.CountryCode, StringFormat='Country code : {0}'}" />
+        <Label Text="{Binding CaseDetail.Province, StringFormat='Province : {0}'}" />
+        <Label Text="{Binding CaseDetail.City, StringFormat='City : {0}'}" />
+        <Label Text="{Binding CaseDetail.CityCode, StringFormat='City code : {0}'}" />
+        <Label Text="{Binding CaseDetail.Lat, StringFormat='Latitude : {0}'}" />
+        <Label Text="{Binding CaseDetail.Lon, StringFormat='Longitude : {0}'}" />
+        <Label Text="{Binding CaseDetail.Confirmed, StringFormat='Confirmed : {0}'}" />
+        <Label Text="{Binding CaseDetail.Deaths, StringFormat='Deaths : {0}'}" />
+        <Label Text="{Binding CaseDetail.Active, StringFormat='Active : {0}'}" />
+        <Label Text="{Binding CaseDetail.Recovered, StringFormat='Recovered : {0}'}" />
+    </StackLayout>
+</ContentPage>
